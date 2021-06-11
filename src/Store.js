@@ -21,11 +21,17 @@ const StateProvider = ({ children }) => {
         };
         return newState;
       case "SET_FILTERED_ALARMS":
-        const name = action.payload.name.toLowerCase();
+        let filtered;
         const status = action.payload.status;
-        let filtered = state.alarms.filter(
-          (a) => a.name.toLowerCase().includes(name) && a.paused === !status
-        );
+        if (action.payload.name) {
+          const name = action.payload.name.toLowerCase();
+          filtered = state.alarms.filter(
+            (a) => a.name.toLowerCase().includes(name) && a.paused === !status
+          );
+        } else {
+          filtered = state.alarms.filter((a) => a.paused === !status);
+        }
+
         newState = {
           ...state,
           filteredAlarms: filtered,

@@ -20,7 +20,31 @@ const data = [
     trigger: "> 80%",
     paused: false,
   },
+  {
+    name: "MyAlarm4",
+    source: "Server 100",
+    metric: "CPU usage",
+    trigger: "> 40%",
+    paused: false,
+  },
 ];
+
+function between(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+async function triggerAlarm() {
+  let alarm = between(0, 5);
+  for (let index = 0; index < data.length; index++) {
+    if (alarm === index) {
+      data[index].paused = !data[index].paused;
+      break;
+    }
+  }
+  return data;
+}
+
+// API
 
 async function getAlarms() {
   return data;
@@ -60,6 +84,7 @@ const API = {
   deleteAlarm: deleteAlarm,
   activateAlarm: activateAlarm,
   saveAlarm: saveAlarm,
+  triggerAlarm: triggerAlarm,
 };
 
 export default API;

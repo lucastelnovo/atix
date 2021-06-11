@@ -27,6 +27,25 @@ function App() {
     getAlarms();
   }, [dispatch]);
 
+  useEffect(() => {
+    async function listenAlarms() {
+      let response = [];
+      try {
+        response = await API.triggerAlarm();
+      } catch (err) {
+        console.error(err);
+      } finally {
+        dispatch({ type: "SET_ALARMS", payload: response });
+      }
+    }
+    function listenService() {
+      setTimeout(function () {
+        listenAlarms();
+      }, 10000);
+    }
+    listenService();
+  }, [dispatch]);
+
   return (
     <Router>
       <div className="App">
@@ -37,7 +56,7 @@ function App() {
             <DashboardView />
           </Route>
           <Route path="/alarms">
-            <AlarmsView data={state.alarms} />
+            <AlarmsView data={state.filteredAlarms} />
           </Route>
           <Route path="/edit/:name">
             <EditView />
