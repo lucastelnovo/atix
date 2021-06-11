@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.menuIcon {
+  margin-top: 12px;
+}
+
+.dashboardCard {
+  margin: 1rem;
+  width: 275px;
+  padding: 3rem;
+}
+
+.filterItem {
+  margin: 15px !important
+}
+
+.actionItem {
+  margin-right: 10px !important
+}
+
+.formInput{
+  margin-top: 2rem !important;
+}
