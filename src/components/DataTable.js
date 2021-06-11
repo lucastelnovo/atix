@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 const DataTable = ({ data }) => {
   const AppState = useContext(Store);
-  const { dispatch, state } = AppState;
+  const { dispatch } = AppState;
 
   const history = useHistory();
   const [page, setPage] = useState(0);

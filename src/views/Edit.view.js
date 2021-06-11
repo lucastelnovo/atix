@@ -33,14 +33,17 @@ const EditView = () => {
     }
   };
 
-  useEffect(async () => {
-    let response;
-    try {
-      response = await API.getAlarm(name);
-      setAlarm(response);
-    } catch (err) {
-      console.error(err);
+  useEffect(() => {
+    async function getAlarm() {
+      let response;
+      try {
+        response = await API.getAlarm(name);
+        setAlarm(response);
+      } catch (err) {
+        console.error(err);
+      }
     }
+    getAlarm();
   }, [name]);
 
   return (

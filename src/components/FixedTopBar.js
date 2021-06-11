@@ -1,9 +1,8 @@
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import Box from "@material-ui/core/Box";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Store } from "../Store";
 
 const FixedTopBar = () => {

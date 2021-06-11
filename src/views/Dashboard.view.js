@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Store } from "../Store";
 import styled from "styled-components";
 import DashboardCard from "../components/DashboardCard";

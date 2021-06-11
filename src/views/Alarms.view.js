@@ -11,7 +11,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const AlarmsView = ({ data }) => {
   const AppState = useContext(Store);
-  const { dispatch, state } = AppState;
+  const { dispatch } = AppState;
 
   const [status, setStatus] = useState(true);
 
